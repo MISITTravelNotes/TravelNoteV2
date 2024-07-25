@@ -1,7 +1,17 @@
+
+using TravelNotesV2.Repositories;
+using TravelNotesV2.Repositories.Common;
+using TravelNotesV2.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<CommonRep>();
+builder.Services.AddScoped<MemberRep>();
+builder.Services.AddScoped<MemberSer>();
+//
+
 
 var app = builder.Build();
 
