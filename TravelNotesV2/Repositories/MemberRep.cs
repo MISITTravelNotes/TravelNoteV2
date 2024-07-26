@@ -56,20 +56,25 @@ namespace TravelNotesV2.Repositories
             }
         }
 
-        public string GetSuperUser()
+        public string CheckSuperUser(string Mail)
         {
-            var sql = @"SELECT UserId FROM users WHERE SuperUser = 'Y'";
+            var sql = @"SELECT SuperUser FROM users WHERE Mail=@Mail";
+            var parameters = new DynamicParameters();
+            parameters.Add("Mail", Mail);
             using (var conn = new SqlConnection(_connectString))
             {
-                var result = conn.QueryFirstOrDefault<string>(sql);
+                var result = conn.QueryFirstOrDefault<string>(sql, parameters);
                 if (result != null)
                 {
-                    return result;
-                }
-                else
-                {
-                    return "Mail not found";
-                }
+                    if (result == "Y")
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                }else{ return "User Not Found"; }
             }
         }
 
@@ -113,7 +118,7 @@ namespace TravelNotesV2.Repositories
             }
         }
 
-        // 新增使用者
+        //註冊
         public string CreateNewUser(string _Mail, string _Pwd)
         {
             string sql = @"SELECT Mail FROM users WHERE Mail = @Mail";

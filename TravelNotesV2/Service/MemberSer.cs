@@ -28,6 +28,7 @@ namespace TravelNotesV2.Service
         }
 
         // 必須存在session中
+        [HttpPost]
         public string GetLoginToken(string email, string password)
         {
             var dbEmail = _memberRep?.GetMail(email);
@@ -39,13 +40,16 @@ namespace TravelNotesV2.Service
                 return "無此Email";
             }
 
-            if (dbPassword != password)
+            if (dbPassword != hashedPassword)
             {
                 return "密碼錯誤";
             }
 
+            var dbRole = _memberRep!.CheckSuperUser(email);
+
             var token = GenerateJwtToken(email);
             var sessionUserId = _memberRep?.GetUserId(dbEmail, dbPassword);
+
 
             if (sessionUserId != null)
             {
@@ -76,6 +80,14 @@ namespace TravelNotesV2.Service
                 signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        //登出
+        [HttpPost]
+        public string Logout()
+        {
+            _httpContextAccessor.HttpContext?.Session.Remove("SessionUserId");
+            return "登出成功";
         }
 
         [HttpPost]

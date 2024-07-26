@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using TravelNotesV2.Service;
 
 namespace TravelNotesV2.WebApi
@@ -22,5 +24,11 @@ namespace TravelNotesV2.WebApi
         {
             return _memberSer!.Register(email, password);
         }
+
+        public string Logout()
+        {
+            return _memberSer!.Logout();
+        }
+
     }
 }
