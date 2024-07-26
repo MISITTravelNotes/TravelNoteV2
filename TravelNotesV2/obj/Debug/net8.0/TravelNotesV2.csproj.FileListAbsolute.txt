@@ -136,3 +136,4 @@ A:\MyLab\TravelNotesV2\TravelNotesV2\obj\Debug\net8.0\refint\TravelNotesV2.dll
 A:\MyLab\TravelNotesV2\TravelNotesV2\obj\Debug\net8.0\TravelNotesV2.pdb
 A:\MyLab\TravelNotesV2\TravelNotesV2\obj\Debug\net8.0\TravelNotesV2.genruntimeconfig.cache
 A:\MyLab\TravelNotesV2\TravelNotesV2\obj\Debug\net8.0\ref\TravelNotesV2.dll
+A:\MyLab\TravelNotesV2\TravelNotesV2\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

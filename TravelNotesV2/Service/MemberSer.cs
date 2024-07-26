@@ -1,7 +1,9 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using TravelNotesV2.Models;
 using TravelNotesV2.Repositories;
 
 namespace TravelNotesV2.Service
@@ -10,17 +12,21 @@ namespace TravelNotesV2.Service
     {
         private readonly MemberRep? _memberRep;
         private readonly IConfiguration? _configuration;
+        private readonly JwtSettings _jwtSettings;
 
-        public MemberSer(MemberRep memberRep, IConfiguration configuration)
+        public MemberSer(MemberRep memberRep, 
+                        IConfiguration configuration, 
+                        JwtSettings jwtSettings)
         {
             _memberRep = memberRep;
             _configuration = configuration;
+            _jwtSettings = jwtSettings;
         }
 
         public string Login(string email, string password)
         {
-            var dbEmail = _memberRep!.GetMail(email);
-            var dbPassword = _memberRep.GetPassWord(password);
+            var dbEmail = _memberRep?.GetMail(email);
+            var dbPassword = _memberRep?.GetPassWord(password);
 
             if (dbEmail == null)
             {
@@ -36,6 +42,7 @@ namespace TravelNotesV2.Service
             return token;
         }
 
+        [HttpPost("token")]
         private string GenerateJwtToken(string email)
         {
             var claims = new[]
@@ -45,12 +52,12 @@ namespace TravelNotesV2.Service
                 new Claim(ClaimTypes.Email, email)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration?["Jwt:Key"]!));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration?["JwtSettings:SecretKey"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                issuer: _configuration!["Jwt:Issuer"],
-                audience: _configuration!["Jwt:Audience"],
+                issuer: _configuration!["JwtSettings:Issuer"],
+                audience: _configuration!["JwtSettings:Audience"],
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: creds);

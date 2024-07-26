@@ -17,27 +17,42 @@ namespace TravelNotesV2.Repositories
             }
         }
 
-        public string GetMail(string Mail)
+        public string GetMail(string mail)
         {
-            var sql = @"SELECT Mail FROM users";
+            var sql = @"SELECT Mail FROM users WHERE Mail = @Mail";
             var parameters = new DynamicParameters();
-            parameters.Add("Mail", Mail);
+            parameters.Add("Mail", mail);
+
             using (var conn = new SqlConnection(_connectString))
             {
-                var result = conn.QueryFirstOrDefault(sql, parameters);
-                return result!;
+                var result = conn.QueryFirstOrDefault<string>(sql, parameters);
+                if (result != null)
+                {
+                    return result;
+                }
+                else
+                {
+                    return "Mail not found";
+                }
             }
         }
 
         public string GetPassWord(string Pwd)
         {
-            var sql = @"SELECT Pwd FROM users";
+            var sql = @"SELECT Pwd FROM users Where Pwd = @Pwd";
             var parameters = new DynamicParameters();
             parameters.Add("Pwd", Pwd);
             using (var conn = new SqlConnection(_connectString))
             {
-                var result = conn.QueryFirstOrDefault(sql, parameters);
-                return result!;
+                var result = conn.QueryFirstOrDefault<string>(sql, parameters);
+                if (result != null)
+                {
+                    return result;
+                }
+                else
+                {
+                    return "Mail not found";
+                }
             }
         }
 
@@ -46,7 +61,15 @@ namespace TravelNotesV2.Repositories
             var sql = @"SELECT UserId FROM users WHERE SuperUser = 'Y'";
             using (var conn = new SqlConnection(_connectString))
             {
-                return conn.QueryFirstOrDefault(sql)!;
+                var result = conn.QueryFirstOrDefault<string>(sql);
+                if (result != null)
+                {
+                    return result;
+                }
+                else
+                {
+                    return "Mail not found";
+                }
             }
         }
 
@@ -57,8 +80,15 @@ namespace TravelNotesV2.Repositories
             parameters.Add("UserId", UserId);
             using (var conn = new SqlConnection(_connectString))
             {
-                var result = conn.QueryFirstOrDefault(sql, parameters);
-                return result!;
+                var result = conn.QueryFirstOrDefault<string>(sql, parameters);
+                if (result != null)
+                {
+                    return result;
+                }
+                else
+                {
+                    return "Mail not found";
+                }
             }
         }
     }
