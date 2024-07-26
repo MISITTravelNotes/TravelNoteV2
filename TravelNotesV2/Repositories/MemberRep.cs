@@ -17,11 +17,11 @@ namespace TravelNotesV2.Repositories
             }
         }
 
-        public string GetMail(string mail)
+        public string GetMail(string Mail)
         {
             var sql = @"SELECT Mail FROM users WHERE Mail = @Mail";
             var parameters = new DynamicParameters();
-            parameters.Add("Mail", mail);
+            parameters.Add("Mail", Mail);
 
             using (var conn = new SqlConnection(_connectString))
             {
@@ -91,5 +91,57 @@ namespace TravelNotesV2.Repositories
                 }
             }
         }
+
+        public string GetUserId(string Mail, string Pwd)
+        {
+            var sql = @"SELECT UserId FROM users 
+                        WHERE Mail = @Mail AND Pwd = @Pwd";
+            var parameters = new DynamicParameters();
+            parameters.Add("Mail", Mail);
+            parameters.Add("Pwd", Pwd);
+            using (var conn = new SqlConnection(_connectString))
+            {
+                var result = conn.QueryFirstOrDefault<string>(sql, parameters);
+                if (result != null)
+                {
+                    return result;
+                }
+                else
+                {
+                    return "UserId not found";
+                }
+            }
+        }
+
+        // 新增使用者
+        public string CreateNewUser(string _Mail, string _Pwd)
+        {
+            string sql = @"SELECT Mail FROM users WHERE Mail = @Mail";
+            string sql2 = @"INSERT INTO users (Mail, Pwd, SuperUser, Headshot) VALUES (@Mail, @Pwd, 'N', '/images/userImageDefault.jpg');";
+            var parameters = new DynamicParameters();
+            parameters.Add("Mail", _Mail);
+
+            var parameters2 = new
+            {
+                Mail = _Mail,
+                Pwd = _Pwd,
+            };
+
+            using (var conn = new SqlConnection(_connectString))
+            {
+                var result = conn.QueryFirstOrDefault<string>(sql, parameters);
+                if (result == null)
+                {
+                    conn.Execute(sql2, parameters2);
+                    return "OK";
+                }
+                else
+                {
+                    return "Create Fail";
+                }
+            }
+        }
+
+
     }
 }

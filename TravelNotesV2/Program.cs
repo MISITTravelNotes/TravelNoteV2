@@ -4,16 +4,24 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using TravelNotesV2.Models;
 using TravelNotesV2.Repositories;
-using TravelNotesV2.Repositories.Common;
 using TravelNotesV2.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<CommonRep>();
 builder.Services.AddScoped<MemberRep>();
 builder.Services.AddScoped<MemberSer>();
+
+//Configure Session settings
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 //Configure JWT settings
 var jwtSettings = new JwtSettings();
@@ -56,7 +64,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 

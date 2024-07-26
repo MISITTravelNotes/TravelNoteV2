@@ -13,9 +13,14 @@ namespace TravelNotesV2.WebApi
             _memberSer = memberSer;
         }
 
-        public string Login(string email, string password)
+        public string GetLoginToken(string email, string password)
         {
-            return _memberSer!.Login(email, password);
+            return _memberSer!.GetLoginToken(email, password);
+        }
+
+        public string Register(string email, string password)
+        {
+            return _memberSer!.Register(email, password);
         }
     }
 }
