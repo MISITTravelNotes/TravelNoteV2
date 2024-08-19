@@ -1,6 +1,8 @@
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Configuration;
 using System.Text;
 using TravelNotesV2.Models;
 using TravelNotesV2.Repositories;
@@ -8,10 +10,16 @@ using TravelNotesV2.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<TravelContext>(
+      options => options.UseSqlServer(builder.Configuration.GetConnectionString("TravelConnstring")));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<MemberRep>();
 builder.Services.AddScoped<MemberSer>();
+builder.Services.AddScoped<AiRecommendRep>();
+builder.Services.AddScoped<AiRecommendSer>();
+
 
 //Configure Session settings
 builder.Services.AddSession(options =>

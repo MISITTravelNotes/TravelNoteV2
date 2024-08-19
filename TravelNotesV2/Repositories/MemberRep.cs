@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
+using System.Reflection.Metadata;
 using TravelNotesV2.Models;
 
 namespace TravelNotesV2.Repositories
@@ -78,11 +79,11 @@ namespace TravelNotesV2.Repositories
             }
         }
 
-        public string GetHeadshot(int UserId)
+        public string GetHeadshot(string Mail)
         {
-            var sql = @"SELECT Headshot FROM users WHERE UserId = @UserId";
+            var sql = @"SELECT Headshot FROM users WHERE Mail = @Mail";
             var parameters = new DynamicParameters();
-            parameters.Add("UserId", UserId);
+            parameters.Add("Mail", Mail);
             using (var conn = new SqlConnection(_connectString))
             {
                 var result = conn.QueryFirstOrDefault<string>(sql, parameters);
@@ -147,6 +148,38 @@ namespace TravelNotesV2.Repositories
             }
         }
 
+        //忘記密碼
+        //public string ForgotPwd(string Mail)
+        //{
+        //    string sql = @"SELECT Pwd FROM users WHERE Mail = @Mail";
+        //    var parameters = new DynamicParameters();
+        //    parameters.Add("Mail", Mail);
+        //    using (var conn = new SqlConnection(_connectString))
+        //    {
+        //        var result = conn.QuerySingle<string>(sql, parameters);
+        //        if (result != null)
+        //        {
+        //            return result;
+        //        }
+        //        else
+        //        {
+        //            return "Mail Not Find";
+        //        } 
+        //    }
+        //}
 
+        //變更密碼
+        public string ChangePwd(string Mail, string NewPwd)
+        {
+            string sql = @"UPDATE users SET Pwd = @NewPwd WHERE Mail = @Mail";
+            var parameters = new DynamicParameters();
+            parameters.Add("NewPwd", NewPwd);
+            parameters.Add("Mail", Mail);
+            using (var conn = new SqlConnection(_connectString))
+            {
+                conn.Execute(sql, parameters);
+                return "Change is ok";
+            }
+        }
     }
 }
