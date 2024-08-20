@@ -7,8 +7,8 @@
       "RelativeMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|solutionrelative:travelnotesv2\\webapi\\airecommendapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|a:\\mylab\\travelnotesv2\\travelnotesv2\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|solutionrelative:travelnotesv2\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|a:\\mylab\\travelnotesv2\\travelnotesv2\\repositories\\airecommendrep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|solutionrelative:travelnotesv2\\repositories\\airecommendrep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,28 +30,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\appsettings.json",
-              "RelativeDocumentMoniker": "TravelNotesV2\\appsettings.json",
-              "ToolTip": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\appsettings.json",
-              "RelativeToolTip": "TravelNotesV2\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-19T03:20:59.811Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "AiRecommendApi.cs",
               "DocumentMoniker": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\WebApi\\AiRecommendApi.cs",
               "RelativeDocumentMoniker": "TravelNotesV2\\WebApi\\AiRecommendApi.cs",
               "ToolTip": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\WebApi\\AiRecommendApi.cs",
               "RelativeToolTip": "TravelNotesV2\\WebApi\\AiRecommendApi.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAowCAAAAAJAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAewCkAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T01:25:14.829Z",
+              "WhenOpened": "2024-08-20T00:35:42.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AiRecommendRep.cs",
+              "DocumentMoniker": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\Repositories\\AiRecommendRep.cs",
+              "RelativeDocumentMoniker": "TravelNotesV2\\Repositories\\AiRecommendRep.cs",
+              "ToolTip": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\Repositories\\AiRecommendRep.cs",
+              "RelativeToolTip": "TravelNotesV2\\Repositories\\AiRecommendRep.cs",
+              "ViewState": "AQIAAF4AAAAAAAAAAIAzwG0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-20T00:34:26.725Z",
               "EditorCaption": ""
             }
           ]

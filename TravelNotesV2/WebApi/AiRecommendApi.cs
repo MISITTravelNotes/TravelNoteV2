@@ -25,44 +25,28 @@ namespace TravelNotesV2.WebApi
         public async Task<ActionResult> GetFilterId(int modelId)
         {
             var query = await _api.GetFilterId(modelId);
-            if(query == null)
-            {
-                return NotFound("沒找到");
-            }
-            return Ok(query);
+            return Ok(query.Result);
         }
 
         [HttpPut]
         public async Task<ActionResult> UpdateModel(int modelId, model_list list)
         {
             var query = await _api.UpdateModel(modelId, list);
-            if (query == null)
-            {
-                return BadRequest("更新失敗");
-            }
-            return Ok("更新成功");
+            return Ok(query.Result);
         }
 
         [HttpPost]
         public async Task<ActionResult> CreateModel(model_list list)
         {
             var query = await _api.CreateModel(list);
-            if(query == null)
-            {
-                return BadRequest("新增失敗");
-            }
-            return Ok("新增成功");
+            return Ok(query.Result);
         }
 
         [HttpDelete]
         public async Task<IActionResult> DeleteModel(int modelId)
         {
             var query = await _api.DeleteModel(modelId);
-            if (query == null)
-            {
-                return BadRequest("刪除失敗");
-            }
-            return Ok("刪除成功");
+            return Ok(query);
         }
     }
 }

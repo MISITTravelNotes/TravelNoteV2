@@ -38,18 +38,21 @@ namespace TravelNotesV2.Repositories
         [HttpGet("{modelId}")]
         public async Task<ActionResult<model_list>> GetFilterId(int modelId)
         {
-            var sql = "@SELECT * FROM modelId = @modelId";
-            var parameter = new SqlParameter("modelId", modelId);
-            using(var conn = new SqlConnection(_connectString))
+            var sql = @"SELECT * FROM model_list WHERE modelId = @modelId";
+            var parameters = new DynamicParameters();
+            parameters.Add("modelId", modelId);
+
+            using (var conn = new SqlConnection(_connectString))
             {
-                var result = await conn.QueryFirstOrDefaultAsync(sql);
-                if (result == null) 
-                { 
-                    return NotFound();
+                var result = await conn.QueryFirstOrDefaultAsync<model_list>(sql, parameters);
+                if (result == null)
+                {
+                    return NotFound("無此id");
                 }
-                return result;
+                return Ok(result);
             }
         }
+
 
         // POST: api/model_list
         [HttpPut("{modelId}")]
@@ -71,7 +74,7 @@ namespace TravelNotesV2.Repositories
                 }
                 else
                 {
-                    return BadRequest();
+                    return BadRequest("更新失敗");
                 }
             }
         }
@@ -80,21 +83,28 @@ namespace TravelNotesV2.Repositories
         [HttpPost]
         public async Task<ActionResult<model_list>> CreateModel(model_list list)
         {
-            var sql = @"INSERT INTO model_list(modelName, useCount)
-                        VALUES(@modelName, 0)";
-            var parameters = new DynamicParameters();
-            parameters.Add("modelName", list.modelName);
-            using (var conn = new SqlConnection(_connectString))
+            if(list.modelName == null)
             {
-                var execute = await conn.ExecuteAsync(sql, parameters);
+                return BadRequest("新增失敗");
+            }
+            else
+            {
+                var sql = @"INSERT INTO model_list(modelName, useCount)
+                        VALUES(@modelName, 0)";
+                var parameters = new DynamicParameters();
+                parameters.Add("modelName", list.modelName);
+                using (var conn = new SqlConnection(_connectString))
+                {
+                    var execute = await conn.ExecuteAsync(sql, parameters);
 
-                if(execute > 0)
-                {
-                    return Ok(execute);
-                }
-                else
-                {
-                    return BadRequest();
+                    if (execute > 0)
+                    {
+                        return Ok("新增成功");
+                    }
+                    else
+                    {
+                        return BadRequest("新增失敗");
+                    }
                 }
             }
         }
