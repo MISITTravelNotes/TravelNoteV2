@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\TravelNotesV2.bundle.scp.css"
     },
     {
+      "Id": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\wwwroot\\css\\member.css",
+      "PackagePath": "staticwebassets\\css\\member.css"
+    },
+    {
       "Id": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -243,6 +247,18 @@
     {
       "Id": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\wwwroot\\lib\\vue\\core.js",
+      "PackagePath": "staticwebassets\\lib\\vue\\core.js"
+    },
+    {
+      "Id": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\wwwroot\\lib\\vue\\validators.js",
+      "PackagePath": "staticwebassets\\lib\\vue\\validators.js"
+    },
+    {
+      "Id": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\wwwroot\\lib\\vue\\vue-demi.js",
+      "PackagePath": "staticwebassets\\lib\\vue\\vue-demi.js"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TravelNotesV2.Microsoft.AspNetCore.StaticWebAssets.props",

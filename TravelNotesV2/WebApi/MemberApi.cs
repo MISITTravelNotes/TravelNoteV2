@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using TravelNotesV2.Service;
+using TravelNotesV2.Models;
 
 namespace TravelNotesV2.WebApi
 {
@@ -15,14 +16,16 @@ namespace TravelNotesV2.WebApi
             _memberSer = memberSer;
         }
 
+        [HttpGet]
         public string GetLoginToken(string email, string password)
         {
             return _memberSer!.GetLoginToken(email, password);
         }
 
-        public string Register(string email, string password)
+        [HttpPost]
+        public string Register([FromBody] users user)
         {
-            return _memberSer!.Register(email, password);
+            return _memberSer!.Register(user);
         }
 
         public string Logout()
@@ -30,6 +33,7 @@ namespace TravelNotesV2.WebApi
             return _memberSer!.Logout();
         }
 
+        [HttpPost]
         public string ForgotPwd(string email)
         {
             return _memberSer!.ForgotPwd(email);

@@ -22,30 +22,30 @@ namespace TravelNotesV2.WebApi
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetFilterId(int modelId)
+        public async Task<ActionResult> GetFilterId(int id)
         {
-            var query = await _api.GetFilterId(modelId);
+            var query = await _api.Get(id);
             return Ok(query.Result);
         }
 
         [HttpPut]
-        public async Task<ActionResult> UpdateModel(int modelId, model_list list)
+        public async Task<ActionResult> UpdateModel(int id, model_list list)
         {
-            var query = await _api.UpdateModel(modelId, list);
+            var query = await _api.Update(id, list);
             return Ok(query.Result);
         }
 
         [HttpPost]
         public async Task<ActionResult> CreateModel(model_list list)
         {
-            var query = await _api.CreateModel(list);
+            var query = await _api.Create(list);
             return Ok(query.Result);
         }
 
         [HttpDelete]
         public async Task<IActionResult> DeleteModel(int modelId)
         {
-            var query = await _api.DeleteModel(modelId);
+            var query = await _api.Delete(modelId);
             return Ok(query);
         }
     }

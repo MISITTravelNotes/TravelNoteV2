@@ -65,13 +65,15 @@ namespace TravelNotesV2.Service
         public string GetLoginToken(string email, string password)
         {
             var dbEmail = _memberRep?.GetMail(email);
-            string hashedPassword = ComputeSHA256Hash(password);
-            var dbPassword = _memberRep?.GetPassWord(hashedPassword);
-
-            if (dbEmail == null)
+            if (dbEmail == "Mail not found")
             {
                 return "無此Email";
             }
+
+            string hashedPassword = ComputeSHA256Hash(password);
+            var dbPassword = _memberRep?.GetPassWord(hashedPassword);
+
+            
 
             if (dbPassword != hashedPassword)
             {
@@ -131,12 +133,12 @@ namespace TravelNotesV2.Service
 
         [HttpPost]
         //註冊會員
-        public string Register(string _Mail, string _Pwd)
+        public string Register([FromBody] users user)
         {
-            if(!string.IsNullOrEmpty(_Mail) && !string.IsNullOrEmpty(_Pwd))
+            if(!string.IsNullOrEmpty(user.Mail) && !string.IsNullOrEmpty(user.Pwd))
             {
-                string hashedPassword = ComputeSHA256Hash(_Pwd);
-                return _memberRep!.CreateNewUser(_Mail, hashedPassword);
+                string hashedPassword = ComputeSHA256Hash(user.Pwd);
+                return _memberRep!.CreateNewUser(user.Mail, hashedPassword);
             }
             else
             {

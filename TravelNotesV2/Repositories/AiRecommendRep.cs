@@ -8,9 +8,8 @@ using TravelNotesV2.Models;
 
 namespace TravelNotesV2.Repositories
 {
-    public class AiRecommendRep : Controller
+    public class AiRecommendRep : ControllerBase
     {
-        
         private readonly string _connectString;
 
         public AiRecommendRep(IConfiguration configuration)
@@ -35,19 +34,19 @@ namespace TravelNotesV2.Repositories
         }
 
         // GET: api/model_list/5
-        [HttpGet("{modelId}")]
-        public async Task<ActionResult<model_list>> GetFilterId(int modelId)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<model_list>> Get(int id)
         {
             var sql = @"SELECT * FROM model_list WHERE modelId = @modelId";
             var parameters = new DynamicParameters();
-            parameters.Add("modelId", modelId);
+            parameters.Add("modelId", id);
 
             using (var conn = new SqlConnection(_connectString))
             {
                 var result = await conn.QueryFirstOrDefaultAsync<model_list>(sql, parameters);
                 if (result == null)
                 {
-                    return NotFound("無此id");
+                    return NotFound();
                 }
                 return Ok(result);
             }
@@ -55,37 +54,48 @@ namespace TravelNotesV2.Repositories
 
 
         // POST: api/model_list
-        [HttpPut("{modelId}")]
-        public async Task<ActionResult<model_list>> UpdateModel(int modelId, model_list list)
+        [HttpPut("{id}")]
+        public async Task<ActionResult<model_list>> Update(int id, model_list list)
         {
-            var sql = @"UPDATE model_list 
+
+            var sql = @"SELECT modelId FROM model_list WHERE modelId=@modelId";
+            var sql2 = @"UPDATE model_list 
                         SET modelName=@modelName
                         WHERE modelId=@modelId";
-            var parameters = new DynamicParameters();
-            parameters.Add("modelId", modelId);
-            parameters.Add("modelName", list.modelName);
-            using (var conn =new SqlConnection(_connectString))
-            {
-                var execute = await conn.ExecuteAsync(sql, parameters);
+            
 
-                if (execute > 0)
+            var parameters = new DynamicParameters();
+            parameters.Add("modelId", id);
+            parameters.Add("modelName", list.modelName);
+
+            if(id != list.modelId)
+            {
+                return BadRequest();
+            }
+
+            using (var conn = new SqlConnection(_connectString))
+            {
+                var getId = await conn.QueryFirstOrDefaultAsync<model_list>(sql, parameters);
+                if (getId != null) 
                 {
-                    return Ok(execute);
+                    var execute = await conn.ExecuteAsync(sql2, parameters);
+                    if (execute <= 0)
+                    {
+                        return BadRequest();
+                    }
+                    return NoContent();
                 }
-                else
-                {
-                    return BadRequest("更新失敗");
-                }
+                return BadRequest();
             }
         }
 
         // POST: api/model_list
         [HttpPost]
-        public async Task<ActionResult<model_list>> CreateModel(model_list list)
+        public async Task<ActionResult<model_list>> Create(model_list list)
         {
             if(list.modelName == null)
             {
-                return BadRequest("新增失敗");
+                return BadRequest();
             }
             else
             {
@@ -110,13 +120,13 @@ namespace TravelNotesV2.Repositories
         }
 
         // DELETE: api/model_list/5
-        [HttpDelete("{modelId}")]
-        public async Task<IActionResult> DeleteModel(int modelId)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
             var sql = @"SELECT modelId FROM model_list WHERE modelId=@modelId";
             var sql2 = @"DELETE FROM model_list WHERE modelId=@modelId";
             var parameters = new DynamicParameters();
-            parameters.Add("modelId", modelId);
+            parameters.Add("modelId", id);
             using (var conn = new SqlConnection(_connectString)) 
             {
                 var query = conn.QueryFirstOrDefault(sql, parameters);

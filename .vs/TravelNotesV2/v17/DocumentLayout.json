@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "A:\\MyLab\\TravelNotesV2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|a:\\mylab\\travelnotesv2\\travelnotesv2\\webapi\\airecommendapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|solutionrelative:travelnotesv2\\webapi\\airecommendapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|a:\\mylab\\travelnotesv2\\travelnotesv2\\service\\memberser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|solutionrelative:travelnotesv2\\service\\memberser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|a:\\mylab\\travelnotesv2\\travelnotesv2\\repositories\\airecommendrep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|solutionrelative:travelnotesv2\\repositories\\airecommendrep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|a:\\mylab\\travelnotesv2\\travelnotesv2\\repositories\\memberrep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|solutionrelative:travelnotesv2\\repositories\\memberrep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|a:\\mylab\\travelnotesv2\\travelnotesv2\\wwwroot\\js\\member.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|solutionrelative:travelnotesv2\\wwwroot\\js\\member.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|a:\\mylab\\travelnotesv2\\travelnotesv2\\views\\member\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2928D570-857B-4AD2-BD27-35DD45BEAB63}|TravelNotesV2\\TravelNotesV2.csproj|solutionrelative:travelnotesv2\\views\\member\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,8 +25,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 39,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,28 +38,60 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AiRecommendApi.cs",
-              "DocumentMoniker": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\WebApi\\AiRecommendApi.cs",
-              "RelativeDocumentMoniker": "TravelNotesV2\\WebApi\\AiRecommendApi.cs",
-              "ToolTip": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\WebApi\\AiRecommendApi.cs",
-              "RelativeToolTip": "TravelNotesV2\\WebApi\\AiRecommendApi.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAewCkAAAAkAAAA",
+              "DocumentIndex": 1,
+              "Title": "MemberRep.cs",
+              "DocumentMoniker": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\Repositories\\MemberRep.cs",
+              "RelativeDocumentMoniker": "TravelNotesV2\\Repositories\\MemberRep.cs",
+              "ToolTip": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\Repositories\\MemberRep.cs",
+              "RelativeToolTip": "TravelNotesV2\\Repositories\\MemberRep.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwHoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-20T00:35:42.776Z",
+              "WhenOpened": "2024-08-29T00:43:20.138Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AiRecommendRep.cs",
-              "DocumentMoniker": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\Repositories\\AiRecommendRep.cs",
-              "RelativeDocumentMoniker": "TravelNotesV2\\Repositories\\AiRecommendRep.cs",
-              "ToolTip": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\Repositories\\AiRecommendRep.cs",
-              "RelativeToolTip": "TravelNotesV2\\Repositories\\AiRecommendRep.cs",
-              "ViewState": "AQIAAF4AAAAAAAAAAIAzwG0AAAAIAAAA",
+              "DocumentIndex": 2,
+              "Title": "member.js",
+              "DocumentMoniker": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\wwwroot\\js\\member.js",
+              "RelativeDocumentMoniker": "TravelNotesV2\\wwwroot\\js\\member.js",
+              "ToolTip": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\wwwroot\\js\\member.js",
+              "RelativeToolTip": "TravelNotesV2\\wwwroot\\js\\member.js",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABQAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-08-26T12:38:16.433Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\Views\\Member\\Register.cshtml",
+              "RelativeDocumentMoniker": "TravelNotesV2\\Views\\Member\\Register.cshtml",
+              "ToolTip": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\Views\\Member\\Register.cshtml",
+              "RelativeToolTip": "TravelNotesV2\\Views\\Member\\Register.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T07:44:21.833Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 361,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MemberSer.cs",
+              "DocumentMoniker": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\Service\\MemberSer.cs",
+              "RelativeDocumentMoniker": "TravelNotesV2\\Service\\MemberSer.cs",
+              "ToolTip": "A:\\MyLab\\TravelNotesV2\\TravelNotesV2\\Service\\MemberSer.cs",
+              "RelativeToolTip": "TravelNotesV2\\Service\\MemberSer.cs",
+              "ViewState": "AQIAAHwAAAAAAAAAAAAQwIYAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-20T00:34:26.725Z",
+              "WhenOpened": "2024-08-29T00:36:43.204Z",
               "EditorCaption": ""
             }
           ]

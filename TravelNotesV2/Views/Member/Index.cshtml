@@ -1,1 +1,31 @@
-﻿
+﻿<link rel="stylesheet" href="~/css/member.css" />
+
+
+<div id="app">
+    <div class="card w-50">
+        <div class="card-body">
+            <div class="mb-3">
+                <h2>登入會員中心</h2>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">電子郵件</label>
+                <input type="email" class="form-control" v-model="account">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">密碼</label>
+                <input type="password" class="form-control" v-model="password">
+            </div>
+            <button type="submit" class="btn btn-primary" v-on:click="Login">送出</button>
+            <br />
+            <div class="mb-3" v-if="errorMessages.length > 0">
+                <p v-for="(message, index) in errorMessages" :key="index" style="color:red">{{message}}</p>
+            </div>
+            <div>
+                <p v-if="logInMessage !== ''" style="color:red">{{logInMessage}}</p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script src="~/js/member.js"></script>
